@@ -22,5 +22,5 @@ exports.seed = (knex, Promise) ->
       		updated_at: knex.raw('now()')
       	}
       )
-     for num in [1..1000]
+     for num in [1..10]
     )
