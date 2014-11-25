@@ -7,14 +7,20 @@
 ###
 
 exports.seed = (knex, Promise) ->
-  knex('locations').insert(
-  	{
-  		title: 'test point'
-  		type: 'store'
-  		description: 'An example point used for testing purposes'
-  		lat:40.7127
-  		lng: -74.0059
-  		created_at: knex.raw('now()')
-  		updated_at: knex.raw('now()')
-  	}
-  )
+    ( 
+        #These variables are used to generate random locations within the general area of NY
+        lat_rand = (Math.random() - .5)*.1
+      	lon_rand = (Math.random() - .5)*.1
+        knex('locations').insert(
+      	{
+      		title: 'test point ' + num
+      		type: 'store'
+      		description: 'An example point used for testing purposes'
+      		lat:40.75 + lat_rand
+      		lng: -73.95 + lng_rand
+      		created_at: knex.raw('now()')
+      		updated_at: knex.raw('now()')
+      	}
+      )
+     for num in [1..1000]
+    )
